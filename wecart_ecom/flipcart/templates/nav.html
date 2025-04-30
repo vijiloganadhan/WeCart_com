@@ -1,0 +1,127 @@
+<nav class="navbar bg-primary" data-bs-theme="dark" style="padding: 10px;">
+    <div class="navbar-inner" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; width: 100%;">
+        <!-- Logo + Home Link -->
+        <div class="logo-home" style="display: flex; align-items: center; gap: 30px;">
+            <span>
+                <a href="{% url 'home' %}" class="logo-link">
+                  <span class="logo-part1">We</span><span class="logo-part2">Cart</span>
+                </a>
+              </span>
+              
+
+            <a href="{% url 'home' %}" style="color:white; text-decoration: none;">Home</a>
+        </div>
+
+        <!-- Search Form -->
+        <form action="{% url 'search' %}" method="POST" style="flex: 1; max-width: 400px; display: flex;">
+            {% csrf_token %}
+            <input type="text" name="q" placeholder="Search products" style="flex: 1; padding: 5px; border: none; border-radius: 3px;">
+            <input type="submit" value="Search" class="search" style="border: 2px solid green; cursor: pointer;">
+        </form>
+
+        <!-- Auth Links + Profile -->
+        <div class="auth-links" style="display: flex; align-items: center; gap: 10px;">
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'logout' %}" style="color:white; text-decoration: none;">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}" style="color:white; text-decoration: none;">Login</a>
+                <a href="{% url 'signup' %}" style="color:white; text-decoration: none;">Signup</a>
+            {% endif %}
+            <a href="{% url 'display' %}" style="color:white; text-decoration: none;">🛒Cart</a>
+            <a href="{% url 'orders' %}" style="color:white; text-decoration: none;">📜✅Orders</a>
+        </div>
+    </div>
+</nav>
+
+<style>
+.search:hover {
+    background-color: rgb(9, 245, 80);
+    border: none;
+    border-radius: 5px;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 770px) {
+    .navbar-inner {
+        display: flex;
+        flex-wrap: nowrap; /* no wrapping */
+        overflow-x: auto; /* scroll if content overflows */
+        white-space: nowrap;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .logo-home {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .logo-home a {
+        font-size: 14px;
+    }
+
+    form {
+        flex-shrink: 0;
+        width: 140px; /* reduce search width */
+        display: flex;
+        align-items: center;
+    }
+
+    form input[type="text"] {
+        width: 90px;
+        font-size: 12px;
+        padding: 4px;
+    }
+
+    form input[type="submit"] {
+        font-size: 12px;
+        padding: 4px 6px;
+        margin-left: 4px;
+    }
+
+    .auth-links {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .auth-links a {
+        font-size: 12px;
+        white-space: nowrap;
+    }
+}
+.logo-link {
+  font-size: 40px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  display: inline-block;
+  letter-spacing: -1px;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* First part "We" - Electric Orange & Pink Gradient */
+.logo-part1 {
+  background: linear-gradient(45deg, #FF6F61, #FFB347); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Second part "Cart" - Aqua Blue & Neon Green Gradient */
+.logo-part2 {
+  background: linear-gradient(45deg, #00F0FF, #00D26A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hover Effect */
+.logo-link:hover {
+  transform: scale(1.08);
+  text-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+</style>

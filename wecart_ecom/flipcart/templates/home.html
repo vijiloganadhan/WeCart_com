@@ -1,0 +1,210 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .category-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+        background-color: #f3f3f3;
+    }
+    .category-card {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        text-align: center;
+        padding: 15px;
+        width: 250px;
+    }
+    .category-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .category-card img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin-bottom: 10px;
+    }
+    .category-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        margin: 0;
+    }
+
+    .banner-container {
+        position: relative;
+        top: -190px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        justify-content: center;
+        max-width: 90%;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .banner {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background: linear-gradient(to right, #4a90e2, #6a11cb);
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 700px;
+    }
+
+    .banner img {
+        max-width: 150px;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .banner-text {
+        text-align: left;
+        flex: 1;
+        padding-right: 20px;
+    }
+
+    .buy-button {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #ffcc00;
+        color: black;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    /* Mobile Responsive Amazon style */
+
+@media (max-width: 770px) {
+
+    #carouselExampleIndicators {
+        margin-bottom: 20px;
+    }
+
+    .carousel-inner {
+        height: 500px;
+    }
+
+    .carousel-item img {
+        height: 300px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .category-container {
+        flex-direction: row; /* important: change to row */
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px;
+        gap: 10px;
+        position: relative;
+        top: -100px;
+    }
+
+    .category-card {
+        width: 45%; /* two cards in one line */
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .category-card img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .banner-container {
+        grid-template-columns: 1fr;
+        top: 0;
+        padding: 10px;
+    }
+
+    .banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .banner-text {
+        padding-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .banner img {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+        margin-top: 10px;
+    }
+}
+
+
+</style>
+
+<!-- Carousel Section -->
+<div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-indicators">
+      {% for i in image %}
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" 
+          class="{% if forloop.first %}active{% endif %}" aria-current="true" aria-label="Slide {{ forloop.counter }}"></button>
+      {% endfor %}
+  </div>
+  <div class="carousel-inner">
+      {% for i in image %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <img src="{{ i.image.url }}" alt="Image not found" class="d-block w-100">
+      </div>
+      {% endfor %}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- Categories Section -->
+<div class="category-container" style="position:relative; top:-200px;">
+    {% for i in cat %}
+    <div class="category-card">
+        <a href="{% url 'products' i.id %}">
+            <img src="{{i.image.url}}" alt="Image not found">
+            <h2 class="category-title">{{i.cname}}</h2>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Banners Section -->
+<div class="banner-container">
+    {% for i in ibanners %}
+    <div class="banner">
+        <div class="banner-text">
+            <h2>{{ i.title }}</h2>
+            <p>{{ i.desc }}</p>
+            <a href="#" class="buy-button">Buy Now</a>
+        </div>
+        <img src="{{ i.image.url }}" alt="Product">
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

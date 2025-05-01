@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="97b9972b-26fb-40a8-bbc1-32129d4d3b51" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/WeCart_ecom/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/WeCart_ecom/asgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WeCart_ecom/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/WeCart_ecom/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WeCart_ecom/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/WeCart_ecom/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,9 +16,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2wUBqlapUtB7IqmCYfkxB9bgn8s" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -26,7 +28,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "deploy__branch",
+    "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Users/mlthi/OneDrive/Desktop/django-WeCart_ecom/WeCart_com/WeCart_ecom"
   }
 }]]></component>

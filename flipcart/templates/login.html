@@ -1,0 +1,145 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<style>
+    body {
+        background: #f0f2f5;
+    }
+
+    .login-container {
+        width: 400px;
+        max-width: 90%;
+        margin: 60px auto;
+        padding: 40px 30px;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .login-container:hover {
+        box-shadow: 0px 12px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .login-container h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 28px;
+        color: #222;
+        font-weight: bold;
+    }
+
+    .login-container form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .login-container label {
+        margin-bottom: 5px;
+        font-weight: 600;
+        font-size: 15px;
+        color: #555;
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        outline: none;
+        transition: border-color 0.3s;
+    }
+
+    .login-container input[type="text"]:focus,
+    .login-container input[type="password"]:focus {
+        border-color: #007185;
+    }
+
+    .login-container button {
+        padding: 12px;
+        background-color: #ffa41c;
+        color: #111;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 18px;
+        margin-top: 10px;
+        transition: background-color 0.3s;
+    }
+
+    .login-container button:hover {
+        background-color: #ff8f00;
+    }
+
+    .signup-link {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #555;
+    }
+
+    .signup-link a {
+        color: #007185;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    /* Responsive Media Query */
+    @media (max-width: 600px) {
+        .login-container {
+            width: 100%;
+            padding: 30px 20px;
+            margin: 40px auto;
+        }
+
+        .login-container h2 {
+            font-size: 24px;
+        }
+
+        .login-container input,
+        .login-container button {
+            font-size: 16px;
+        }
+       input{
+            width: 100%;
+        }
+    }
+</style>
+
+<div class="login-container">
+    {% if msg %}
+        <div class="msg" style="text-align:center; color:red; font-weight:bold; margin-bottom:15px;">
+            {{ msg }}
+        </div>
+    {% endif %}
+
+    <h2>Login</h2>
+
+    <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name="un" id="username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="p1" id="password" required>
+        </div>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <div class="signup-link">
+        Don't have an account? <a href="{% url 'signup' %}">Sign up here</a>
+    </div>
+</div>
+{% endblock content %}

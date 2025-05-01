@@ -1,0 +1,160 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<br><br>
+
+<!-- Display Django Messages -->
+<div style="text-align: center; font-size: 20px;width: 300px;">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Product Section -->
+<div class="container text-center">
+    {% for i in buy %}
+    <div class="order-card">
+        <img src="{{ i.products.image.url }}" alt="Image not found" class="order-img">
+        <div class="order-details">
+            <h3>{{ i.products.title }}</h3>
+            <p><strong>Payment:</strong> {{ i.payment.payment_method }}</p>
+            <p>Delivery date: <big>{{i.delivary_date}}</big></p>
+            <a href="{% url 'delete' i.id %}" class="cancel-btn">Cancel Order</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<br><br>
+
+<!-- Payment Form -->
+<div class="container">
+    <form action="" method="POST" class="payment-form">
+        {% csrf_token %}
+        <label for="" class="form-label">Payment Type</label><br>
+        <div class="payment-options">
+            {% for i in payment %}
+            <label class="payment-option">
+                <input type="radio" name="pay" value="{{ i.payment_method }}" required> Cash On Delivery
+            </label>
+            {% endfor %}
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Continue</button>
+    </form>
+</div>
+<br>
+<br>
+
+<!-- Styles -->
+<style>
+    .order-img {
+        max-width: 200px;
+        height: 200px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+    .order-card {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .order-details {
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .payment-form {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 500px;
+        margin: auto;
+    }
+
+    .payment-options {
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .payment-option {
+        display: inline-block;
+        margin-right: 15px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: white;
+        cursor: pointer;
+    }
+
+    .payment-option:hover {
+        transform: scale(1.05);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .payment-img {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+    }
+
+    /* Mobile View Adjustments */
+    @media (max-width: 768px) {
+        .order-card {
+            width: 100%; /* Take full width */
+            margin-bottom: 15px;
+        }
+
+        .order-img {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .payment-form {
+            width: 90%; /* Make form narrower */
+            margin: auto;
+            padding: 15px;
+        }
+
+        .payment-options {
+            margin-top: 10px;
+        }
+
+        .payment-option {
+            display: block; /* Stack payment options vertically */
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .btn-primary {
+            width: 100%; /* Make button take full width */
+            padding: 12px;
+            font-size: 16px;
+        }
+    }
+
+    /* Larger screen view (>=768px) */
+    @media (min-width: 769px) {
+        .order-card {
+            width: 45%; /* Show two items in a row */
+            display: inline-block;
+            margin-right: 20px;
+        }
+    }
+</style>
+
+{% endblock content %}

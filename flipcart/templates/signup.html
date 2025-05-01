@@ -1,0 +1,155 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #f8f8f8;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .signup-container {
+        max-width: 400px;
+        width: 100%;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .signup-container h1 {
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 28px;
+        color: #333;
+    }
+
+    .signup-container label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 8px;
+        font-size: 16px;
+        color: #555;
+    }
+
+    .signup-container input[type="text"],
+    .signup-container input[type="email"],
+    .signup-container input[type="password"] {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    .signup-container input[type="submit"] {
+        width: 100%;
+        padding: 14px;
+        background-color: #ffa41c;
+        border: none;
+        color: #111;
+        font-weight: bold;
+        font-size: 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    .signup-container input[type="submit"]:hover {
+        background-color: #ff8f00;
+    }
+
+    .msg {
+        text-align: center;
+        color: red;
+        font-weight: bold;
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+
+    .signup-link {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+    }
+
+    .signup-link a {
+        color: #007185;
+        text-decoration: none;
+    }
+
+    .signup-link a:hover {
+        text-decoration: underline;
+    }
+
+    /* 📱 Correct Mobile View Media Query */
+  /* 📱 Updated Mobile View Media Query */
+@media (max-width: 600px) {
+    .signup-container {
+        width: 90%;
+        margin: 40px auto;
+        padding: 25px 15px;
+        border-radius: 8px;
+    }
+
+    .signup-container h1 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .signup-container label {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+
+    .signup-container input[type="text"],
+    .signup-container input[type="email"],
+    .signup-container input[type="password"],
+    .signup-container input[type="submit"] {
+        font-size: 14px;
+        padding: 10px;
+        margin-bottom: 16px;
+    }
+
+    .signup-container input[type="submit"] {
+        font-size: 15px;
+        padding: 12px;
+    }
+}
+
+</style>
+
+
+
+
+<div class="signup-container">
+    {% if msg %}
+        <div class="msg">{{ msg }}</div>
+    {% endif %}
+
+    <h1>Signup</h1>
+    <form action="{% url 'signup' %}" method="POST">
+        {% csrf_token %}
+        <label>Username</label>
+        <input type="text" name="un">
+
+        <label>Email</label>
+        <input type="email" name="e">
+
+        <label>Password</label>
+        <input type="password" name="p1">
+
+        <label>Confirm Password</label>
+        <input type="password" name="p2">
+
+        <input type="submit" value="Sign Up">
+    </form>
+</div>
+
+{% endblock content %}

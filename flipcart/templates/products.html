@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<style>
+    .category-container {
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        background-color: #f3f3f3;
+    }
+    .category-card {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        text-align: center;
+        padding: 15px;
+    }
+    .category-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .category-card img {
+        max-width:500;
+        height:400px;
+        object-fit: cover;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 10px;
+    }
+    .category-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        margin: 0;
+    }
+</style>
+
+<div class="category-container" style="display: flex; align-items: center; justify-content:space-evenly; flex-wrap: wrap;">
+    {% for i in products %}
+    <div class="category-card">
+        <a href="{% url 'dproducts' i.id %}"><img src="{{i.image.url}}" alt="Image not found" ></a>
+        <h2 class="category-title">{{i.title}}</h2>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

@@ -1,0 +1,141 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<br><br>
+<center>
+<table class="cart-table">
+    <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Image</th>
+        <th>Actions</th>
+    </tr>
+    {% for i in cart %}
+    <tr>
+        <td>{{i.products.title}}</td>
+        <td>₹{{i.products.price}}</td>
+        <td>{{i.quantity}}</td>
+        <td><img src="{{i.products.image.url}}" alt="Image not found" class="cart-image"></td>
+        <td>
+            <a href="{% url 'addcart' i.products.id %}" class="cart-btn">➕</a>
+            <a href="{% url 'remove' i.id %}" class="cart-btn">➖</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</center>
+
+<style>
+    .cart-table {
+        width: 90%;
+        max-width: 800px;
+        border-collapse: collapse;
+        border: 2px solid black;
+        margin: 20px 0;
+        background-color: #f9f9f9;
+    }
+
+    .cart-table th, .cart-table td {
+        padding: 12px;
+        border: 1px solid black;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .cart-table th {
+        background-color: #007185;
+        color: white;
+        font-weight: bold;
+    }
+
+    .cart-image {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .cart-btn {
+        display: inline-block;
+        background-color: #28a745;
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 5px 10px;
+        margin: 0 3px;
+        border-radius: 5px;
+        transition: background-color 0.2s ease;
+    }
+
+    .cart-btn:hover {
+        background-color: #218838;
+    }
+
+    /* Tablet View */
+    @media (max-width: 768px) {
+        .cart-table {
+            width: 95%;
+        }
+        .cart-table th, .cart-table td {
+            padding: 8px;
+            font-size: 14px;
+        }
+        .cart-image {
+            width: 50px;
+            height: 50px;
+        }
+        .cart-btn {
+            font-size: 16px;
+            padding: 4px 8px;
+        }
+    }
+
+    /* Mobile View - Stack rows into cards */
+    @media (max-width: 480px) {
+        .cart-table {
+            width: 100%;
+            border: none;
+        }
+        .cart-table thead {
+            display: none;  /* Hide table headers */
+        }
+        .cart-table tr {
+            display: block;
+            border: 1px solid black;
+            margin-bottom: 10px;
+            background-color: white;
+            padding: 10px;
+        }
+        .cart-table td {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            font-size: 14px;
+        }
+        .cart-table td::before {
+            content: attr(data-label);
+            font-weight: bold;
+            color: #007185;
+            flex: 1;
+            text-align: left;
+        }
+        .cart-table td:last-child {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+        .cart-image {
+            width: 40px;
+            height: 40px;
+        }
+        .cart-btn {
+            font-size: 14px;
+            padding: 3px 6px;
+        }
+    }
+</style>
+{% endblock content %}

@@ -144,6 +144,7 @@ MIDDLEWARE = ['whitenoise.middleware.WhiteNoiseMiddleware'] + MIDDLEWARE
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 SECRET_KEY = 'h&sg&a8i6eph(612-g-w0r^7yo-$p5rn@*vf9k$=mmebq&&thc'
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['WeCart_ecom.up.railway.app']
+ALLOWED_HOSTS = ['WeCart_ecom.up.railway.app', '127.0.0.1', 'localhost']
+

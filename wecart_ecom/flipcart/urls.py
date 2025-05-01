@@ -18,4 +18,7 @@ urlpatterns=[
     path('display_order',views.display_order, name="orders"),
     path('delete_order/<int:ids>',views.delete_order,name="delete"),
     path('mail/<int:ids>',views.order_success,name="mail"),
-]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

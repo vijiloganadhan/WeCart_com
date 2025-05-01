@@ -22,7 +22,7 @@ colorama==0.4.5
 comm==0.1.2
 crashtest==0.4.1
 cryptography==38.0.4
-cx-Freeze==6.13.1
+cx-Freeze==6.15.0
 cx-Logging==3.1.0
 debugpy==1.6.4
 decorator==5.1.1
@@ -77,6 +77,7 @@ MarkupSafe==2.1.1
 matplotlib-inline==0.1.6
 more-itertools==10.6.0
 msgpack==1.1.0
+mysqlclient==2.2.7
 nest-asyncio==1.5.6
 numpy==1.23.4
 opencv-python==4.6.0.66
@@ -110,6 +111,7 @@ pypiwin32==223
 pyproject_hooks==1.2.0
 PySocks==1.7.1
 python-dateutil==2.8.2
+python-dotenv==1.1.0
 pytz==2022.5
 pywin32==304
 pywin32-ctypes==0.2.0
@@ -152,7 +154,3 @@ zipp==3.8.1
 zope.event==4.5.0
 zope.interface==5.5.2
 zstandard==0.23.0
-Django==4.2.19
-gunicorn==20.1.0
-psycopg2==2.9.3  # If using PostgreSQL
-whitenoise==5.3.0  # If serving static files

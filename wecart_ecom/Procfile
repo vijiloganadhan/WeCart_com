@@ -1,2 +1,1 @@
-web: gunicorn WeCart_ecom.wsgi:application
-
+"web: gunicorn WeCart_ecom.wsgi" 

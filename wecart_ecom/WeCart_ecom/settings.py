@@ -135,16 +135,6 @@ EMAIL_HOST_PASSWORD ="ucpi spys nzel ysje"
 CONTACT_EMAIL="mlvijayalakshmiloganadhan@gmail.com"
 DEFAULT_FROM_EMAIL=EMAIL_HOST_USER
 import os
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'railway',  # replace with your actual DB name
-        'USER': 'root',     # replace with your actual DB user
-        'PASSWORD': 'your_password_here',
-        'HOST': 'containers-us-west-53.railway.app',
-        'PORT': '7821',
-    }
-}
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

@@ -1,5 +1,5 @@
 """
-ASGI config for flipcart_ecom project.
+ASGI config for WeCart_ecom project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'flipcart_ecom.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'WeCart_ecom.settings')
 
 application = get_asgi_application()

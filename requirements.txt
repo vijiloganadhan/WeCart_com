@@ -22,7 +22,7 @@ colorama==0.4.5
 comm==0.1.2
 crashtest==0.4.1
 cryptography==38.0.4
-cx-Freeze==6.13.1
+cx-Freeze==6.15.0
 cx-Logging==3.1.0
 debugpy==1.6.4
 decorator==5.1.1

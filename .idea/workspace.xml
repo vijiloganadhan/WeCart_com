@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97b9972b-26fb-40a8-bbc1-32129d4d3b51" name="Changes" comment="" />
+    <list default="true" id="97b9972b-26fb-40a8-bbc1-32129d4d3b51" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WeCart_ecom/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/WeCart_ecom/settings.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,7 +28,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "deploy__branch",
     "last_opened_file_path": "C:/Users/mlthi/OneDrive/Desktop/django-WeCart_ecom/WeCart_com/WeCart_ecom"
   }
 }]]></component>
@@ -46,5 +49,8 @@
       <updated>1746086464271</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>

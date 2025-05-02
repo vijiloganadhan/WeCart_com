@@ -6,7 +6,7 @@ from cloudinary.models import CloudinaryField  # ✅ Import this
 # Category model
 class Category(models.Model):
     cname = models.CharField(max_length=100)
-    image = CloudinaryField('image')  # ✅ Cloudinary field
+    images = CloudinaryField('image')  # ✅ Cloudinary field
 
     def __str__(self):
         return self.cname
@@ -16,7 +16,7 @@ class Products(models.Model):
     title = models.CharField(max_length=100)
     desc = models.TextField()
     price = models.IntegerField()
-    image = CloudinaryField('image')  # ✅ Cloudinary field
+    images = CloudinaryField('image')  # ✅ Cloudinary field
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -40,7 +40,7 @@ class Profile(models.Model):
 
 # Image model (generic)
 class I(models.Model):
-    image = CloudinaryField('image')  # ✅ Cloudinary field
+    images = CloudinaryField('image')  # ✅ Cloudinary field
 
 # Payment method model
 class Payment(models.Model):
@@ -64,7 +64,7 @@ class Buynow(models.Model):
 class Banner(models.Model):
     title = models.CharField(max_length=100)
     desc = models.TextField()
-    image = CloudinaryField('image')  # ✅ Cloudinary field
+    images = CloudinaryField('image')  # ✅ Cloudinary field
 
     def __str__(self):
         return self.title

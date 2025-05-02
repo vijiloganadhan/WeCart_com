@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="97b9972b-26fb-40a8-bbc1-32129d4d3b51" name="Changes" comment="more updates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WeCart_ecom/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/WeCart_ecom/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flipcart/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/flipcart/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flipcart/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/flipcart/templates/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

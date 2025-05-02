@@ -11,7 +11,6 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'unsafe-fallback-key')  # Replace in
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
-
 CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS', 'https://wecartcom-production.up.railway.app').split(',')
 
 # Application definition
@@ -28,8 +27,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',  # This should be near the top
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -107,10 +106,19 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # Default primary key field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Security settings for production
+# Security settings
 SECURE_SSL_REDIRECT = True  # Enforces HTTPS on production
 SECURE_HSTS_SECONDS = 31536000  # Enforces HTTPS for 1 year
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
+
+# Proxy setting to handle SSL headers from a proxy (e.g. Railway)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allowed Hosts for Deployment (e.g. Railway URL and local host)
+ALLOWED_HOSTS = ['wecartcom-production.up.railway.app', '127.0.0.1', 'localhost']
+
+# CSRF trusted origins (same as allowed hosts)
+CSRF_TRUSTED_ORIGINS = ['https://wecartcom-production.up.railway.app']

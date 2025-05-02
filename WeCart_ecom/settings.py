@@ -66,18 +66,6 @@ DATABASES = {
     }
 }
 
-# If you want to use PostgreSQL, change to something like:
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.getenv('DB_NAME'),
-#         'USER': os.getenv('DB_USER'),
-#         'PASSWORD': os.getenv('DB_PASSWORD'),
-#         'HOST': os.getenv('DB_HOST', 'localhost'),
-#         'PORT': os.getenv('DB_PORT', '5432'),
-#     }
-# }
-
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
@@ -119,17 +107,10 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # Default primary key field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Allowed Hosts for Deployment (e.g. Railway URL and local host)
-ALLOWED_HOSTS = ['wecartcom-production.up.railway.app', '127.0.0.1', 'localhost']
-
-# CSRF trusted origins (same as allowed hosts)
-CSRF_TRUSTED_ORIGINS = ['https://wecartcom-production.up.railway.app']
-
-# Security settings
+# Security settings for production
 SECURE_SSL_REDIRECT = True  # Enforces HTTPS on production
 SECURE_HSTS_SECONDS = 31536000  # Enforces HTTPS for 1 year
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
-

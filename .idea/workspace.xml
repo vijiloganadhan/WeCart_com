@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97b9972b-26fb-40a8-bbc1-32129d4d3b51" name="Changes" comment="more updates">
-      <change beforePath="$PROJECT_DIR$/wecart_ecom/WeCart_ecom/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/wecart_ecom/WeCart_ecom/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wecart_ecom/flipcart/templates/addcart.html" beforeDir="false" afterPath="$PROJECT_DIR$/wecart_ecom/flipcart/templates/addcart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wecart_ecom/flipcart/templates/buynow.html" beforeDir="false" afterPath="$PROJECT_DIR$/wecart_ecom/flipcart/templates/buynow.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wecart_ecom/flipcart/templates/dispaly_cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/wecart_ecom/flipcart/templates/dispaly_cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wecart_ecom/flipcart/templates/dproducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/wecart_ecom/flipcart/templates/dproducts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wecart_ecom/flipcart/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/wecart_ecom/flipcart/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wecart_ecom/flipcart/templates/orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/wecart_ecom/flipcart/templates/orders.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wecart_ecom/flipcart/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/wecart_ecom/flipcart/templates/products.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wecart_ecom/flipcart/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/wecart_ecom/flipcart/templates/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wecart_ecom/flipcart/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/wecart_ecom/flipcart/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wecart_ecom/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/wecart_ecom/Procfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +16,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+  }
+}]]></component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -45,7 +41,7 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "release/v1",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/mlthi/OneDrive/Desktop/django-WeCart_ecom/WeCart_com/WeCart_ecom"
   }
 }]]></component>

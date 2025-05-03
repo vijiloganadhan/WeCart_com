@@ -160,14 +160,14 @@
 <div id="carouselExampleIndicators" class="carousel slide">
   <div class="carousel-indicators">
       {% for i in image %}
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" 
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}"
           class="{% if forloop.first %}active{% endif %}" aria-current="true" aria-label="Slide {{ forloop.counter }}"></button>
       {% endfor %}
   </div>
   <div class="carousel-inner">
       {% for i in image %}
       <div class="carousel-item {% if forloop.first %}active{% endif %}">
-          <img src="{{ i.image.url }}" alt="Image not found" class="d-block w-100">
+          <img src="{{ i.images.url }}" alt="Image not found" class="d-block w-100">
       </div>
       {% endfor %}
   </div>
@@ -186,7 +186,7 @@
     {% for i in cat %}
     <div class="category-card">
         <a href="{% url 'products' i.id %}">
-            <img src="{{i.image.url}}" alt="Image not found">
+            <img src="{{i.images.url}}" alt="Image not found">
             <h2 class="category-title">{{i.cname}}</h2>
         </a>
     </div>
@@ -202,7 +202,7 @@
             <p>{{ i.desc }}</p>
             <a href="#" class="buy-button">Buy Now</a>
         </div>
-        <img src="{{ i.image.url }}" alt="Product">
+        <img src="https://res.cloudinary.com/your-cloud-name/{{ i.images.url }}" alt="Product">
     </div>
     {% endfor %}
 </div>

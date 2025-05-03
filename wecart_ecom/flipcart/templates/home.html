@@ -89,7 +89,6 @@
     }
 
     /* Mobile Responsive Amazon style */
-
 @media (max-width: 770px) {
 
     #carouselExampleIndicators {
@@ -152,8 +151,6 @@
         margin-top: 10px;
     }
 }
-
-
 </style>
 
 <!-- Carousel Section -->
@@ -186,8 +183,8 @@
     {% for i in cat %}
     <div class="category-card">
         <a href="{% url 'products' i.id %}">
-            <img src="{{i.images.url}}" alt="Image not found">
-            <h2 class="category-title">{{i.cname}}</h2>
+            <img src="{{ i.images.url }}" alt="Image not found">
+            <h2 class="category-title">{{ i.cname }}</h2>
         </a>
     </div>
     {% endfor %}
@@ -202,7 +199,7 @@
             <p>{{ i.desc }}</p>
             <a href="#" class="buy-button">Buy Now</a>
         </div>
-        <img src="https://res.cloudinary.com/your-cloud-name/{{ i.images.url }}" alt="Product">
+        <img src="https://res.cloudinary.com/{{ cloud_name }}/{{ i.images.url }}" alt="Product">
     </div>
     {% endfor %}
 </div>

@@ -17,7 +17,8 @@
 <div class="container text-center">
     {% for i in buy %}
     <div class="order-card">
-        <img src="{{ i.products.image.url }}" alt="Image not found" class="order-img">
+        <!-- Fetching product image from Cloudinary using the cloud name -->
+        <img src="https://res.cloudinary.com/{{ cloud_name }}/{{ i.products.image.url }}" alt="Image not found" class="order-img">
         <div class="order-details">
             <h3>{{ i.products.title }}</h3>
             <p><strong>Payment:</strong> {{ i.payment.payment_method }}</p>

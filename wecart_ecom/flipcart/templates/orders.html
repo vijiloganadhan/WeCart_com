@@ -8,11 +8,12 @@
     <div class="order-container">
         {% for i in buy %}
         <div class="order-card">
-            <img src="{{ i.products.image.url }}" alt="Image not found" class="order-img">
+            <!-- Fetching product image from Cloudinary -->
+            <img src="https://res.cloudinary.com/{{ cloud_name }}/{{ i.products.image.url }}" alt="Image not found" class="order-img">
             <div class="order-details">
                 <h3>{{ i.products.title }}</h3>
                 <p><strong>Payment:</strong> {{ i.payment.payment_method }}</p>
-                <p>delivary date<big>{{i.delivary_date}}</big></p>
+                <p>Delivery date: <big>{{ i.delivary_date }}</big></p>
                 <a href="{% url 'delete' i.id %}" class="cancel-btn">Cancel Order</a>
             </div>
         </div>

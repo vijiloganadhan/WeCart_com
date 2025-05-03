@@ -3,7 +3,7 @@
 {% block content %}
 <style>
     .category-container {
-        display:flex;
+        display: flex;
         align-items: center;
         justify-content: space-between;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -11,6 +11,7 @@
         padding: 20px;
         background-color: #f3f3f3;
     }
+
     .category-card {
         background-color: white;
         border: 1px solid #ddd;
@@ -21,17 +22,20 @@
         text-align: center;
         padding: 15px;
     }
+
     .category-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
+
     .category-card img {
-        max-width:500;
-        height:400px;
+        max-width: 500px;
+        height: 400px;
         object-fit: cover;
         border-bottom: 1px solid #ddd;
         margin-bottom: 10px;
     }
+
     .category-title {
         font-size: 20px;
         font-weight: bold;
@@ -40,10 +44,13 @@
     }
 </style>
 
-<div class="category-container" style="display: flex; align-items: center; justify-content:space-evenly; flex-wrap: wrap;">
+<div class="category-container" style="display: flex; align-items: center; justify-content: space-evenly; flex-wrap: wrap;">
     {% for i in products %}
     <div class="category-card">
-        <a href="{% url 'dproducts' i.id %}"><img src="{{i.image.url}}" alt="Image not found" ></a>
+        <!-- Fetch product image from Cloudinary -->
+        <a href="{% url 'dproducts' i.id %}">
+            <img src="https://res.cloudinary.com/{{ cloud_name }}/{{ i.image.url }}" alt="Image not found">
+        </a>
         <h2 class="category-title">{{i.title}}</h2>
     </div>
     {% endfor %}

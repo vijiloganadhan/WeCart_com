@@ -2,48 +2,69 @@
 
 {% block content %}
 <br><br>
-<center>
-<table class="cart-table">
-    <tr>
-        <th>Title</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Image</th>
-        <th>Actions</th>
-    </tr>
-    {% for i in cart %}
-    <tr>
-        <td>{{i.products.title}}</td>
-        <td>₹{{i.products.price}}</td>
-        <td>{{i.quantity}}</td>
-        <td><img src="{{i.products.image.url}}" alt="Image not found" class="cart-image"></td>
-        <td>
-            <a href="{% url 'addcart' i.products.id %}" class="cart-btn">➕</a>
-            
-            {% if i.quantity > 1 %}
-                <a href="{% url 'remove' i.id %}" class="cart-btn">➖</a>
-            {% endif %}
+<!-- Cart Table Section -->
+<div class="cart-container">
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in cart %}
+            <tr>
+                <td>{{ i.products.title }}</td>
+                <td>₹{{ i.products.price }}</td>
+                <td>{{ i.quantity }}</td>
+                <td>
+                    <!-- Fetching image from Cloudinary using the cloud name -->
+                    <img src="https://res.cloudinary.com/{{ cloud_name }}/{{ i.products.image.url }}" alt="Product" class="cart-image">
+                </td>
+                <td>
+                    <a href="{% url 'addcart' i.products.id %}" class="cart-btn">➕</a>
+                    {% if i.quantity > 1 %}
+                        <a href="{% url 'remove' i.id %}" class="cart-btn">➖</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
-        </td>
-   
-    </tr>
-    {% endfor %}
-</table>
-</center>
+<!-- Cart Summary Section -->
+<div class="cart-summary">
+    <h2>Cart Summary</h2>
+    <p>Total Items: {{ cart|length }}</p>
+    <p>Total Price: ₹{{ total_price }}</p>
+    <a href="{% url 'checkout' %}" class="checkout-btn">Proceed to Checkout</a>
+</div>
 
+<!-- Styling Section -->
 <style>
-    .cart-table {
+    /* Cart Table Styling */
+    .cart-container {
         width: 90%;
-        max-width: 800px;
-        border-collapse: collapse;
-        border: 2px solid black;
-        margin: 20px 0;
+        max-width: 1000px;
+        margin: 20px auto;
         background-color: #f9f9f9;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-table {
+        width: 100%;
+        border-collapse: collapse;
     }
 
     .cart-table th, .cart-table td {
-        padding: 12px;
-        border: 1px solid black;
+        padding: 15px;
+        border: 1px solid #ddd;
         text-align: center;
         font-size: 16px;
     }
@@ -77,50 +98,88 @@
         background-color: #218838;
     }
 
+    .cart-summary {
+        text-align: center;
+        background-color: #fff;
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-summary h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .checkout-btn {
+        display: inline-block;
+        background-color: #ffcc00;
+        color: black;
+        font-size: 18px;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+
+    .checkout-btn:hover {
+        background-color: #e6b800;
+    }
+
     /* Tablet View */
     @media (max-width: 768px) {
-        .cart-table {
-            width: 95%;
-        }
         .cart-table th, .cart-table td {
-            padding: 8px;
+            padding: 10px;
             font-size: 14px;
         }
+
         .cart-image {
             width: 50px;
             height: 50px;
         }
+
         .cart-btn {
             font-size: 16px;
             padding: 4px 8px;
         }
+
+        .cart-summary h2 {
+            font-size: 20px;
+        }
+
+        .checkout-btn {
+            font-size: 16px;
+        }
     }
 
-    /* Mobile View - Stack rows into cards */
+    /* Mobile View */
     @media (max-width: 480px) {
         .cart-table {
             width: 100%;
             border: none;
         }
+
         .cart-table thead {
-            display: none;  /* Hide table headers */
+            display: none;
         }
+
         .cart-table tr {
             display: block;
-            border: 1px solid black;
+            border: 1px solid #ddd;
             margin-bottom: 10px;
             background-color: white;
             padding: 10px;
         }
+
         .cart-table td {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 8px 12px;
-            border: none;
-            border-bottom: 1px solid #ddd;
             font-size: 14px;
         }
+
         .cart-table td::before {
             content: attr(data-label);
             font-weight: bold;
@@ -128,21 +187,26 @@
             flex: 1;
             text-align: left;
         }
-        .cart-table td:last-child {
-            display: flex;
-            justify-content: center;
-            gap: 5px;
-        }
+
         .cart-image {
             width: 40px;
             height: 40px;
         }
+
         .cart-btn {
             font-size: 14px;
             padding: 3px 6px;
         }
+
+        .cart-summary {
+            margin-top: 10px;
+        }
+
+        .checkout-btn {
+            font-size: 14px;
+            padding: 8px 16px;
+        }
     }
 </style>
-
 
 {% endblock content %}

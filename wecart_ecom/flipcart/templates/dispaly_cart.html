@@ -16,7 +16,8 @@
         <td>{{i.products.title}}</td>
         <td>₹{{i.products.price}}</td>
         <td>{{i.quantity}}</td>
-        <td><img src="{{i.products.image.url}}" alt="Image not found" class="cart-image"></td>
+        <!-- Fetching product image from Cloudinary using the cloud name -->
+        <td><img src="https://res.cloudinary.com/{{ cloud_name }}/{{ i.products.image.url }}" alt="Image not found" class="cart-image"></td>
         <td>
             <a href="{% url 'addcart' i.products.id %}" class="cart-btn">➕</a>
             <a href="{% url 'remove' i.id %}" class="cart-btn">➖</a>
